@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'untitled1';
+  text = 'hello';
+  textSize = 14;
+  status = true;
+
+  changeSize(): void {
+    this.textSize++;
+  }
+
+  changeStatus(): void {
+    this.status = !this.status;
+  }
 }
