@@ -1,11 +1,20 @@
+<app-navbar></app-navbar>
 <div class="container">
   <app-app-font-size></app-app-font-size>
   <h1 [style.fontSize.px]="textSize" [hidden]="status">
     {{text}}
   </h1>
+  <span matBadge="4" matBadgeOverlap="false">Text with a badge</span>
   <input type="text" [(ngModel)]="text">
-  <button class="btn btn-danger" (click)="changeSize()">click</button>
+  <button class="btn btn-danger" (click)="changeSize()" >click</button>
   <button class="btn btn-primary" (click)="changeStatus()">{{status ? 'show' : 'hide'}} </button>
+  <app-table-pagination></app-table-pagination>
+  <i matBadge="4" class="material-icons">&#xE87C;</i>
+  <br>
+  <span matBadgeSize="medium" [matBadge]="textSize" matBadgeColor="accent" class="material-icons" matBadgePosition="below,before">notifications</span>
+  <i class="material-icons md-48"  matBadgeSize="medium" [matBadge]="textSize">android</i>
+  <br>
+  <i class="material-icons orange600">face</i>
 </div>
 
 
