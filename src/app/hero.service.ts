@@ -14,11 +14,11 @@ export class HeroService {
    * you inject the MessageService into the HeroService which is injected into the HeroesComponent.
    *
    */
-  constructor(private messageService: MessageService) {
+  constructor(public messageService: MessageService) {
   }
 
   getHeroes(): Observable<Hero[]> {
-
+    this.messageService.add('HeroService: fetched heroes');
     return of(HEROES);
   }
 }
