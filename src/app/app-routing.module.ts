@@ -1,13 +1,17 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HeroesComponent} from './components/heroes/heroes.component';
+import {DashboardComponent} from './components/dashboard/dashboard.component';
+import {Hero} from './hero';
+import {HeroDetailComponent} from './components/hero-detail/hero-detail.component';
 
 const ROUTES: Routes = [
-  {
-    path: 'heroes',                /*path: a string that matches the URL in the browser address bar.*/
-    component: HeroesComponent     /*component: the component that the router should create when navigating to this route.*/
-  }
+  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  {path: 'dashboard', component: DashboardComponent},
+  {path: 'detail/:id', component: HeroDetailComponent},
+  {path: 'heroes', component: HeroesComponent}
 ];
+
 
 @NgModule({
   declarations: [],
