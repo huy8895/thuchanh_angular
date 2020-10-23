@@ -9,7 +9,7 @@ import {IUser} from '../iuser';
 export class UserListComponent implements OnInit {
 
   text: string;
-  p: number = 1;
+  p = 1;
   page_title = 'User list';
   statusHidden = false;
   filterUser: IUser[];
@@ -39,17 +39,17 @@ export class UserListComponent implements OnInit {
     this.filterUser = this.users;
   }
 
-  disableImage() {
+  disableImage(): void {
     this.statusHidden = !this.statusHidden;
   }
 
-  search(keyword) {
+  search(keyword): void {
     this.filterUser = (keyword) ? this.findUserByName(keyword) : this.users;
   }
 
   findUserByName(name: string): IUser[] {
-    let result: IUser[] = [];
-    for (let user of this.users) {
+    const result: IUser[] = [];
+    for (const user of this.users) {
       if (user.name.toLowerCase().includes(name.toLowerCase())) {
         result.push(user);
       }
@@ -57,14 +57,14 @@ export class UserListComponent implements OnInit {
     return result;
   }
 
-  delete(index) {
+  delete(index): void {
     if (confirm('Are you sure?')) {
       this.users.splice(index, 1);
       this.text = 'delete success!';
     }
   }
 
-  addUser(data) {
+  addUser(data): void {
     this.users.push(data);
   }
 
