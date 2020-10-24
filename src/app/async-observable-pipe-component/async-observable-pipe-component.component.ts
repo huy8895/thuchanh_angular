@@ -12,31 +12,44 @@ export class AsyncObservablePipeComponentComponent implements OnInit {
   constructor() {
   }
 
-  static observable = new Observable((observer: Observer<any>) => {
-    console.log('Rxjs và Reactive Programming');
-    observer.next(1);
-    observer.next(2);
-    observer.next(3);
-    setTimeout(() => {
-      observer.next(4);
-      observer.complete();
+  observable = new Observable((observer: Observer<any>) => {
+    let count = 0;
+    setInterval(() => {
+      observer.next(count++);
+      if (count > 10) {
+        observer.complete();
+      }
     }, 1000);
+
+    // setTimeout(() => {
+    //   observer.next(4);
+    //   observer.complete();
+    // }, 1000);
   });
 
   time = new Observable<string>(observer => {
     setInterval(() => observer.next(new Date().toString()), 1000);
   });
 
-  observer: any;
+  time_no_asyn: any;
+
 
   ngOnInit(): void {
     console.log('before subscribe');
     this.time.subscribe({
-      next: val => console.log(this.observer = 'next: ' + val),
-      error: err => console.error('error: ' + err),
-      complete: () => console.log('done'),
-    });
-    console.log('after subscribe');
+        next: value => this.time_no_asyn = value,
+        error: err => console.error('error: ' + err),
+        complete: () => console.log('done'),
+      }
+    );
+    // this.observable.subscribe({
+    //   next: val => {
+    //     console.log('next: ' + val);
+    //   },
+    //   error: err => console.error('error: ' + err),
+    //   complete: () => console.log('done'),
+    // });
+    // console.log('after subscribe');
   }
 
 }
