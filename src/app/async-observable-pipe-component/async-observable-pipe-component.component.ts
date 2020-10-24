@@ -23,22 +23,26 @@ export class AsyncObservablePipeComponentComponent implements OnInit {
     }, 1000);
   });
 
-  static time = new Observable<string>(observer => {
+  time = new Observable<string>(observer => {
     setInterval(() => observer.next(new Date().toString()), 1000);
   });
 
+  observer: any;
+
   ngOnInit(): void {
+    console.log('before subscribe');
+    this.time.subscribe({
+      next: val => console.log(this.observer = 'next: ' + val),
+      error: err => console.error('error: ' + err),
+      complete: () => console.log('done'),
+    });
+    console.log('after subscribe');
   }
 
 }
 
-console.log('before subscribe');
-AsyncObservablePipeComponentComponent.time.subscribe({
-  next: val => console.log('next: ' + val),
-  error: err => console.error('error: ' + err),
-  complete: () => console.log('done'),
-});
-console.log('after subscribe');
+
+
 
 
 
