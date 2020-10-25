@@ -30,11 +30,11 @@ export class OnChangesComponent implements OnChanges {
   changeLog: string[] = [];
 
   ngOnChanges(changes: SimpleChanges) {
-    for (const propName in changes) {
-      const chng = changes[propName];
-      const cur  = JSON.stringify(chng.currentValue);
-      const prev = JSON.stringify(chng.previousValue);
-      this.changeLog.push(`${propName}: currentValue = ${cur}, previousValue = ${prev}`);
+    for (const propertyName in changes) {
+      const change = changes[propertyName];
+      const cur  = JSON.stringify(change.currentValue);
+      const prev = JSON.stringify(change.previousValue);
+      this.changeLog.push(`${propertyName}: currentValue = ${cur}, previousValue = ${prev}`);
     }
   }
 
