@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IUser} from '../iuser';
+import {IUser} from "../iuser";
 
 @Component({
   selector: 'app-user-list',
@@ -7,9 +7,9 @@ import {IUser} from '../iuser';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-
+  disable = true;
   text: string;
-  p = 1;
+  p: number = 1;
   page_title = 'User list';
   statusHidden = false;
   filterUser: IUser[];
@@ -28,45 +28,46 @@ export class UserListComponent implements OnInit {
       avatar: 'https://png.pngtree.com/element_our/20190604/ourmid/pngtree-user-avatar-boy-image_1482937.jpg',
       role: 2,
     }
-  ];
+  ]
 
   sizeImage = '100';
-
-  constructor() {
-  }
+  constructor() { }
 
   ngOnInit(): void {
     this.filterUser = this.users;
   }
 
-  disableImage(): void {
+  disableImage() {
     this.statusHidden = !this.statusHidden;
   }
 
-  search(keyword): void {
+  search(keyword) {
     this.filterUser = (keyword) ? this.findUserByName(keyword) : this.users;
   }
 
-  findUserByName(name: string): IUser[] {
-    const result: IUser[] = [];
-    for (const user of this.users) {
-      if (user.name.toLowerCase().includes(name.toLowerCase())) {
-        result.push(user);
+  findUserByName(name: string) : IUser[]{
+      let result: IUser[] = [];
+      for(let user of this.users) {
+        if (user.name.toLowerCase().includes(name.toLowerCase())) {
+          result.push(user);
+        }
       }
-    }
-    return result;
+      return result;
   }
 
-  delete(index): void {
+  delete(index) {
     if (confirm('Are you sure?')) {
-      this.users.splice(index, 1);
-      this.text = 'delete success!';
+      this.users.splice(index,1);
+      this.text = 'delete success!'
     }
   }
 
-  addUser(data): void {
-    this.users.push(data);
+  addUser(data) {
+    this.users.push(data)
   }
 
+  disableUser() {
+    this.disable = !this.disable;
+  }
 
 }

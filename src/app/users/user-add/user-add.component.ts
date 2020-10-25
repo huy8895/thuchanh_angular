@@ -8,10 +8,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class UserAddComponent implements OnInit {
 
-  @Output() data = new EventEmitter();
-
   newUserForm: FormGroup;
-
+  @Output() data = new EventEmitter();
 
   constructor(private formBuilder: FormBuilder) {
   }
@@ -19,15 +17,16 @@ export class UserAddComponent implements OnInit {
   ngOnInit(): void {
     this.newUserForm = this.formBuilder.group(
       {
-        name: ['', [Validators.required]],
+        name: ['', [Validators.required, Validators.minLength(6)]],
         email: ['', [Validators.required, Validators.email]],
-        group: ['', [Validators.required]]
-      });
+        group: ['', [Validators.required]],
+      }
+    );
   }
 
   onSubmit(): void {
-    console.log(this.newUserForm);
     this.data.emit(this.newUserForm.value);
+    this.newUserForm.reset();
   }
 
 }
