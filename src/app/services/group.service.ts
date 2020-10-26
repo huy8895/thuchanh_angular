@@ -12,21 +12,21 @@ export class GroupService {
       id: 2,
       name: 'C0520G1'
     },
-  ];
+  ]
 
   constructor() {
   }
 
-  getAll(): any {
+  getAll() {
     return this.groups;
   }
 
-  getGroupNameById(id: number): string {
-    for (let g of this.groups) {
-      if (g.id === id) {
+  getGroupNameById(id: number): string{
+    for (const g of this.groups){
+      if (g.id == id){
         return g.name;
       }
     }
-    return 'khong co';
+    return "khong ton tai";
   }
 }

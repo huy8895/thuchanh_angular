@@ -15,7 +15,7 @@ export class UserListComponent implements OnInit {
   page_title = 'User list';
   statusHidden = false;
   filterUser: IUser[];
-  users: IUser[] = [];
+  users: IUser[] = []
 
   sizeImage = '100';
   constructor(private userService: UserService,

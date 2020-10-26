@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from '../../services/user.service';
-import {GroupService} from '../../services/group.service';
+import {UserService} from "../../services/user.service";
+import {GroupService} from "../../services/group.service";
 
 @Component({
   selector: 'app-group-list',
