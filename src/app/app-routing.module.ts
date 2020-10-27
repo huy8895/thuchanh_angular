@@ -11,7 +11,7 @@ const appRoutes: Routes = [
   {
     path: 'compose',
     component: ComposeMessageComponent,
-    outlet: 'popup'
+    outlet: 'popup',
   },
   {
     path: 'admin',
