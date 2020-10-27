@@ -9,10 +9,13 @@ import {GroupService} from "../../services/group.service";
 })
 export class GroupListComponent implements OnInit {
 
+
   constructor(private userService: UserService,
               private groupService: GroupService) { }
 
   ngOnInit(): void {
   }
+
+
 
 }

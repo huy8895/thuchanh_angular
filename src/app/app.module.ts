@@ -19,13 +19,9 @@ import { LoginComponent } from './core/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
-    UserListComponent,
     MenuComponent,
     InputSearchComponent,
-    MessageComponent,
-    UserAddComponent,
     GroupListComponent,
-    UserEditComponent,
     AppLayoutComponent,
     LoginComponent,
   ],
@@ -36,7 +32,6 @@ import { LoginComponent } from './core/login/login.component';
     NgbModule,
     NgxPaginationModule,
     ReactiveFormsModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]

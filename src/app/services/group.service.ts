@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
+import {Igroup} from '../groups/igroup';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GroupService {
-  groups = [{
+  groups: Igroup[] = [{
     id: 1,
     name: 'C0520K1'
   },
@@ -12,7 +13,7 @@ export class GroupService {
       id: 2,
       name: 'C0520G1'
     },
-  ]
+  ];
 
   constructor() {
   }
