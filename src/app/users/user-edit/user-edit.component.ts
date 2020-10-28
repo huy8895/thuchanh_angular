@@ -17,7 +17,7 @@ export class UserEditComponent implements OnInit {
   user: IUser;
   groups$: Observable<IGroup[]>;
   private id: number;
-  newUserForm: any;
+  updateUserForm: any;
 
   constructor(private router: ActivatedRoute,
               private userService: UserService,
@@ -31,14 +31,15 @@ export class UserEditComponent implements OnInit {
     this.router.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.userService.getUser(this.id = +params.get('id')))
-    ).subscribe(value => this.user = value);
-    console.log(this.id);
-    console.log(this.groups$);
-    console.log(this.user);
-    this.newUserForm = this.formBuilder.group(
+    ).subscribe(value => {
+      this.user = value;
+      this.updateUserForm.patchValue(this.user);
+    });
+
+    this.updateUserForm = this.formBuilder.group(
       {
-        name: [this.user.name, [Validators.required, Validators.minLength(6)]],
-        email: [this.user.email, [Validators.required, Validators.email]],
+        name: ['', [Validators.required, Validators.minLength(6)]],
+        email: ['', [Validators.required, Validators.email]],
         group: this.formBuilder.group(
           {id: ['']}),
       }
@@ -46,9 +47,9 @@ export class UserEditComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const data: IUser = this.newUserForm.value;
-    console.log(this.newUserForm.value);
-    this.userService.upade(data).subscribe(() => {
+    const data: IUser = this.updateUserForm.value;
+    console.log('updateForm value: ' + this.updateUserForm.value);
+    this.userService.upDate(this.id, data).subscribe(() => {
       this.route.navigate(['admin/users']);
     });
   }

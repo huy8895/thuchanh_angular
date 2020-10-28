@@ -1,13 +1,13 @@
 <div>
-  <form (ngSubmit)="onSubmit()" [formGroup]="newUserForm">
+  <form (ngSubmit)="onSubmit()" [formGroup]="updateUserForm">
     <table class="table table-bordered">
       <tr>
         <td>Name</td>
         <td><input class="form-control" type="text" formControlName="name">
-          <div *ngIf="newUserForm.get('name').hasError('required') && newUserForm.touched" class="text-danger">
+          <div *ngIf="updateUserForm.get('name').hasError('required') && updateUserForm.touched" class="text-danger">
             field require
           </div>
-          <div *ngIf="newUserForm.get('name').hasError('minlength')" class="text-danger">
+          <div *ngIf="updateUserForm.get('name').hasError('minlength')" class="text-danger">
             field min length 6
           </div>
         </td>
@@ -15,10 +15,10 @@
       <tr>
         <td>Email</td>
         <td><input class="form-control" type="text" formControlName="email">
-          <div *ngIf="newUserForm.get('email').hasError('required') && newUserForm.touched" class="text-danger">
+          <div *ngIf="updateUserForm.get('email').hasError('required') && updateUserForm.touched" class="text-danger">
             field require
           </div>
-          <div *ngIf="newUserForm.get('email').hasError('email')" class="text-danger">
+          <div *ngIf="updateUserForm.get('email').hasError('email')" class="text-danger">
             field not format email
           </div>
         </td>
@@ -42,7 +42,7 @@
       <tr>
         <td></td>
         <td>
-          <button class="btn btn-primary mr-2" type="submit" [disabled]="newUserForm.invalid">Add</button>
+          <button class="btn btn-primary mr-2" type="submit" [disabled]="updateUserForm.invalid">Update</button>
           <button class="btn btn-secondary" routerLink="/admin/users">Cancel</button>
         </td>
       </tr>
