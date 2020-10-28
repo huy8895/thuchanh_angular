@@ -24,15 +24,15 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    let data = this.loginForm.value;
-    let userCurrent = this.userService.findUserByEmailAndPassword(data);
-    if (userCurrent != -1) {
-      window.localStorage.setItem('userLogin', JSON.stringify(userCurrent));
-      this.router.navigate(['admin'])
-    } else {
-      this.message = 'Tài khoản hoặc mất khẩu không đúng!'
-      this.router.navigate(['login'])
-    }
+    // let data = this.loginForm.value;
+    // let userCurrent = this.userService.findUserByEmailAndPassword(data);
+    // if (userCurrent != -1) {
+    //   window.localStorage.setItem('userLogin', JSON.stringify(userCurrent));
+    //   this.router.navigate(['admin'])
+    // } else {
+    //   this.message = 'Tài khoản hoặc mất khẩu không đúng!'
+    //   this.router.navigate(['login'])
+    // }
 
   }
 

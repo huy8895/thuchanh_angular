@@ -1,33 +1,22 @@
 import {Injectable} from '@angular/core';
-import {Igroup} from '../groups/igroup';
+import {IGroup} from '../groups/igroup';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {environment} from '../../environments/environment';
+
+const API_URL = environment.apiUrl;
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class GroupService {
-  groups: Igroup[] = [{
-    id: 1,
-    name: 'C0520K1'
-  },
-    {
-      id: 2,
-      name: 'C0520G1'
-    },
-  ];
+  groups: IGroup[] = [];
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
-  getAll() {
-    return this.groups;
-  }
-
-  getGroupNameById(id: number): string{
-    for (const g of this.groups){
-      if (g.id == id){
-        return g.name;
-      }
-    }
-    return "khong ton tai";
+  getAll(): Observable<IGroup[]> {
+    return this.http.get<IGroup[]>(API_URL + 'groups');
   }
 }

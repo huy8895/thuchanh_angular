@@ -15,6 +15,7 @@ import { GroupListComponent } from './groups/group-list/group-list.component';
 import { UserEditComponent } from './users/user-edit/user-edit.component';
 import { AppLayoutComponent } from './core/app-layout/app-layout.component';
 import { LoginComponent } from './core/login/login.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { LoginComponent } from './core/login/login.component';
     NgbModule,
     NgxPaginationModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

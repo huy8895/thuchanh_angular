@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IUser} from "../iuser";
-import {UserService} from "../../services/user.service";
-import {GroupService} from "../../services/group.service";
+import {IUser} from '../iuser';
+import {UserService} from '../../services/user.service';
+import {GroupService} from '../../services/group.service';
+import {Observable, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-user-list',
@@ -12,41 +13,41 @@ export class UserListComponent implements OnInit {
   disable = true;
   text: string;
   p: number = 1;
+  // tslint:disable-next-line:variable-name
   page_title = 'User list';
   statusHidden = false;
   filterUser: IUser[];
-  users: IUser[] = []
 
   sizeImage = '100';
-  constructor(private userService: UserService,
-              private groupService: GroupService) { }
 
-  ngOnInit(): void {
-    this.users = this.userService.getAll();
-    this.filterUser = this.users;
+  constructor(private userService: UserService) {
   }
 
-  disableImage() {
+  ngOnInit(): void {
+    this.userService.getAll().subscribe(value =>
+      this.filterUser = value);
+  }
+
+  disableImage(): void {
     this.statusHidden = !this.statusHidden;
   }
 
-  search(keyword) {
-    this.filterUser = (keyword) ? this.userService.findUserByName(keyword) : this.users;
+  search(keyword): void {
+    // this.filterUser = (keyword) ? this.userService.findUserByName(keyword) : this.users;
   }
 
-  delete(index) {
-    if (confirm('Are you sure?')) {
-      this.users.splice(index,1);
-      this.text = 'delete success!'
-    }
+  delete(index): void {
+    // if (confirm('Are you sure?')) {
+    //   this.users.splice(index, 1);
+    //   this.text = 'delete success!';
+    // }
   }
 
-  addUser(data) {
-    this.users.push(data)
+  addUser(data): void {
   }
 
-  disableUser() {
+  disableUser(): void {
     this.disable = !this.disable;
-  }
+  };
 
 }

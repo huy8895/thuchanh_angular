@@ -32,12 +32,12 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let user of filterUser | paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
+            <tr *ngFor="let user of filterUser |  paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
               <th scope="row">{{  i + 1 }}</th>
               <td [hidden]="statusHidden"><img [width]="sizeImage" src="{{ user.avatar}}" alt=""></td>
               <td>{{ user.name }}</td>
               <td>{{ user.email }}</td>
-              <td>{{ groupService.getGroupNameById(user.group_id)}}</td>
+              <td>{{ user.group.name}}</td>
               <td>{{ user.role }}</td>
               <td><input type="checkbox" class="form-check"></td>
               <td>

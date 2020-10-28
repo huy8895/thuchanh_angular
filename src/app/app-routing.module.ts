@@ -9,6 +9,11 @@ import {GroupsModule} from './groups/groups.module';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'admin',
+    pathMatch: 'full'
+  },
+  {
     path: 'admin',
     component: AppLayoutComponent,
     children: [
