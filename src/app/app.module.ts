@@ -16,6 +16,7 @@ import { UserEditComponent } from './users/user-edit/user-edit.component';
 import { AppLayoutComponent } from './core/app-layout/app-layout.component';
 import { LoginComponent } from './core/login/login.component';
 import {HttpClientModule} from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {HttpClientModule} from '@angular/common/http';
     NgxPaginationModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
