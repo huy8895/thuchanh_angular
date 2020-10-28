@@ -21,7 +21,6 @@ import { LoginComponent } from './core/login/login.component';
     AppComponent,
     MenuComponent,
     InputSearchComponent,
-    GroupListComponent,
     AppLayoutComponent,
     LoginComponent,
   ],
