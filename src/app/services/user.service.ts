@@ -19,4 +19,13 @@ export class UserService {
     console.log('data' + JSON.stringify(data));
     return this.http.post<IUser>(API_URL + 'users', data);
   }
+
+  getUser(id: number): Observable<IUser>{
+    return this.http.get<IUser>(API_URL + 'users/' + id);
+  }
+
+  upade(data: IUser): Observable<IUser> {
+    console.log('data' + JSON.stringify(data));
+    return this.http.put<IUser>(API_URL + 'users', data);
+  }
 }

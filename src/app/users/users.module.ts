@@ -14,6 +14,9 @@ const routes: Routes = [
   },
   {
     path: 'add', component: UserAddComponent
+  },
+  {
+    path: ':id', component: UserEditComponent
   }
 ];
 

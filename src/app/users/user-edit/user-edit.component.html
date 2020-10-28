@@ -1,1 +1,52 @@
-<p>user-edit works!</p>
+<div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="newUserForm">
+    <table class="table table-bordered">
+      <tr>
+        <td>Name</td>
+        <td><input class="form-control" type="text" formControlName="name">
+          <div *ngIf="newUserForm.get('name').hasError('required') && newUserForm.touched" class="text-danger">
+            field require
+          </div>
+          <div *ngIf="newUserForm.get('name').hasError('minlength')" class="text-danger">
+            field min length 6
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td><input class="form-control" type="text" formControlName="email">
+          <div *ngIf="newUserForm.get('email').hasError('required') && newUserForm.touched" class="text-danger">
+            field require
+          </div>
+          <div *ngIf="newUserForm.get('email').hasError('email')" class="text-danger">
+            field not format email
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Group</td>
+        <td formGroupName="group">
+          <select class="form-control"  formControlName="id">
+            <option *ngFor="let group of groups$ | async"  value="{{group.id}}">{{group.name}}</option>
+          </select></td>
+      </tr>
+      <tr>
+        <td>Avatar</td>
+        <td>
+          <input type="file"  ><!--formControlName="avatar" (change)="onFileChange($event)"-->
+          <div class="progress mt-2">
+            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <button class="btn btn-primary mr-2" type="submit" [disabled]="newUserForm.invalid">Add</button>
+          <button class="btn btn-secondary" routerLink="/admin/users">Cancel</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+
+</div>
