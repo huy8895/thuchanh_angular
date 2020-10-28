@@ -7,6 +7,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgxPaginationModule} from "ngx-pagination";
 import {MessageComponent} from "../component/message/message.component";
 import {RouterModule, Routes} from "@angular/router";
+import {MatButtonModule} from '@angular/material/button';
 
 const routes: Routes = [
   {
@@ -27,13 +28,14 @@ const routes: Routes = [
     UserEditComponent,
     MessageComponent
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NgxPaginationModule,
-    RouterModule.forChild(routes)
-  ]
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NgxPaginationModule,
+        RouterModule.forChild(routes),
+        MatButtonModule
+    ]
 })
 export class UsersModule {
 }

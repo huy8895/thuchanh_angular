@@ -17,6 +17,11 @@ import { AppLayoutComponent } from './core/app-layout/app-layout.component';
 import { LoginComponent } from './core/login/login.component';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {DialogComponent} from './component/dialog/dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -25,8 +30,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     InputSearchComponent,
     AppLayoutComponent,
     LoginComponent,
+    DialogComponent
   ],
   imports: [
+    MatDialogModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -35,6 +42,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

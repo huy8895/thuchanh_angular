@@ -31,4 +31,8 @@ export class UserService {
     console.log('data' + JSON.stringify(data));
     return this.http.put<IUser>(API_URL + 'users/' + id, data);
   }
+
+  deleteUser(id: number): Observable<IUser> {
+    return this.http.delete<IUser>(API_URL + 'users/' + id);
+  }
 }
