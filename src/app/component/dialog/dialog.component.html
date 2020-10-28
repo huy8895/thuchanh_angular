@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Confirm delete !</h1>
+<div mat-dialog-content>
+  <ul>
+    <li>
+      {{data.name}}
+    </li>
+    <li>
+      {{data.email}}
+    </li>
+    <li>
+      {{data.group.name}}
+    </li>
+  </ul>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-raised-button color="warn" [mat-dialog-close]="data" cdkFocusInitial>Delete</button>
+</div>
