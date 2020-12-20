@@ -1,0 +1,8 @@
+<p>select-multiple-checkbox works!</p>
+<label>Choose your browser from the list:</label>
+<label *ngFor="let city of cities" ><br>
+<input type="checkbox" name="browser" id="browser" value="{{city.id}}" (change)="onChecked($event)">{{city.name}}
+</label>
+<br>
+<button (click)="submit()">submit</button>
+
