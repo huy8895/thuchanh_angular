@@ -1,7 +1,6 @@
-
-  <label for="browser">Choose your browser from the list:</label>
-  <input list="browsers" name="browser" id="browser" [(ngModel)]="selectedCity">
-  <datalist id="browsers" >
-    <option *ngFor="let city of cities" value="{{city.name}}" >
-  </datalist>
-  <button (click)="submit()">submit</button>
+<label for="browser">Choose your browser from the list:</label>
+<input list="browsers" name="browser" id="browser" [(ngModel)]="selectedCity" minlength="2">
+<datalist id="browsers">
+  <option *ngFor="let city of cities.splice(0,5)" value="{{city.name}}">
+</datalist>
+<button (click)="submit()">submit</button>
